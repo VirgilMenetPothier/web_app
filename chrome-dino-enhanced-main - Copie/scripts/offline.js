@@ -394,30 +394,7 @@ Runner.prototype = {
     }
   },
 
-  /**
-   * Load and decode base 64 encoded sounds.
-   */
-  loadSounds() {
-    if (!IS_IOS) {
-      this.audioContext = new AudioContext();
-
-      const resourceTemplate =
-          document.getElementById(this.config.RESOURCE_TEMPLATE_ID).content;
-
-      for (const sound in Runner.sounds) {
-        let soundSrc =
-            resourceTemplate.getElementById(Runner.sounds[sound]).src;
-        soundSrc = soundSrc.substr(soundSrc.indexOf(',') + 1);
-        const buffer = decodeBase64ToArrayBuffer(soundSrc);
-
-        // Async, so no guarantee of order in array.
-        this.audioContext.decodeAudioData(buffer, function(index, audioData) {
-            this.soundFx[index] = audioData;
-          }.bind(this, sound));
-      }
-    }
-  },
-
+  
   /**
    * Sets the game speed. Adjust the speed accordingly if on a smaller screen.
    * @param {number=} opt_speed
@@ -1034,7 +1011,6 @@ Runner.prototype = {
             if (isMobileMouseInput) {
               this.handleCanvasKeyPress(e);
             }
-            this.loadSounds();
             this.setPlayStatus(true);
             this.update();
             if (window.errorPageController) {
