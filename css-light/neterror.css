@@ -1,0 +1,75 @@
+* {
+  font-family: system-ui, 'Segoe UI', Tahoma, sans-serif;
+}
+
+h1 span {
+  font-weight: 500;
+}
+
+
+.icon-offline {
+  content: -webkit-image-set(
+      url(../images/default_100_percent/offline/100-error-offline.png) 1x,
+      url(../images/default_200_percent/offline/200-error-offline.png) 2x);
+  position: relative;
+}
+
+
+/* Offline page */
+
+.offline {
+  transition: filter 1.5s cubic-bezier(0.65, 0.05, 0.36, 1),
+              background-color 1.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.offline body {
+  transition: background-color 1.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+
+.offline.inverted {
+  background-color: #dfdedb; /* --google-gray-900 inverted value */
+  filter: invert(1);
+}
+
+.offline .interstitial-wrapper {
+  color: var(--text-color);
+  font-size: 1em;
+  line-height: 1.55;
+  margin: 0 auto;
+  max-width: 600px;
+  padding-top: 100px;
+  position: relative;
+  width: 100%;
+}
+
+.offline .runner-container {
+  direction: ltr;
+  height: 150px;
+  max-width: 600px;
+  overflow: hidden;
+  position: absolute;
+  top: 35px;
+  width: 44px;
+}
+
+
+#offline-resources {
+  display: none;
+}
+
+
+/* Custom toggle */
+
+.arcade-mode .runner-canvas {
+  image-rendering: pixelated;
+}
+
+.arcade-mode #main-content {
+  opacity: 0;
+}
+
+.arcade-mode .runner-container {
+  transform-origin: top center;
+  transition: transform 250ms cubic-bezier(0.4, 0, 1, 1) 400ms;
+}
