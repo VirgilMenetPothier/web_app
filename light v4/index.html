@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en" class="offline">
+    <head>
+        <meta charset="utf-8">
+        <title>Chrome Dino</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="styles/neterror.css">
+        <script src="scripts/neterror.slim.js"></script>
+        <script src="scripts/offline.js"></script>
+        <script src="scripts/offline-sprite-definitions.js"></script>
+
+    </head>
+    <body style="font-size: 75%">
+        <div id="main-frame-error" class="interstitial-wrapper">
+            <div id="main-content">
+                <div class="icon icon-offline" style="visibility: hidden;"></div>
+                <div id="main-message">
+                    <h1>
+                        <span>Appuyer sur "ESPACE" pour jouer</span>
+                    </h1>
+                </div>
+            </div>
+            
+        </div>
+        <!-- Actual game -->
+        <div id="offline-resources">
+            <img id="offline-resources-1x" src="images/default_100_percent/offline/100-offline-sprite.png">  
+        </div>
+        <script src="scripts/load_time_data.js"></script>
+        <script src="scripts/strings.js"></script>
+    </body>
+</html>
